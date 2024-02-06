@@ -1,0 +1,422 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+/*************************** Global ***************************/
+
+body {
+    min-height: 100vh;
+    background: url(../Assets/img/background.jpg) center/cover;
+}
+
+/*************************** Header ***************************/
+
+header {
+    display: flex;
+    justify-content: center;
+    height: 100px;
+    width: 100%;
+    background: transparent;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    background: transparent;
+}
+
+/************************ Dropdown ************************/
+
+.dropdown {
+    position: relative;
+    display: none;
+    z-index: 1;
+}
+
+.dropdown .list {
+    display: flex;
+    font-size: 2rem;
+    color: white;
+    line-height: 90px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    z-index: 1;
+    border: 2px solid rgba(255, 255, 255, .5);
+    backdrop-filter: blur(20px);
+}
+
+.dropdown-content .nav-responsive {
+    width: 100%;
+}
+
+.nav-responsive a {
+    text-decoration: none;
+    color: white;
+    font-weight: 800;
+}
+
+.dropdown-content .nav-responsive:hover {
+    background: #162938;
+}
+
+.nav-responsive a {
+    display: flex;
+    padding: 10px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.container h1 {
+    color: white;
+    font-weight: 900;
+}
+
+.container ul {
+    display: flex;
+    align-items: center;
+}
+
+ul li {
+    margin-right: 30px;
+    list-style: none;
+    position: relative;
+}
+
+/* Animation sur la navbar */
+ul li::after {
+    content: "";
+    position: absolute;
+    background: white;
+    height: 2px;
+    width: 100%;
+    left: 0;
+    bottom: -3px;
+    transform: scaleX(0);
+    transition: transform .5s;
+    transform-origin: right;
+}
+
+ul li:hover::after {
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 800;
+}
+
+ul .btn-login {
+    background: transparent;
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 13px;
+    font-weight: 900;
+    width: 100px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: 0.5s;
+}
+
+ul .btn-login:hover {
+    background: white;
+    color: #162938;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 20px;
+    background: transparent;
+    backdrop-filter: blur(20px);
+    margin: 0 auto;
+    width: 400px;
+    height: 440px;
+    overflow: hidden;
+    transform: scale(0);
+    position: relative;
+    transition: transform .5s ease;
+}
+
+.main.active-btn {
+    transform: scale(1);
+}
+
+.main .x {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    right: 0;
+    border: 1px solid #162938;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #162938;
+    color: white;
+    font-weight: 800;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.main .container-login {
+    padding: 0 20px 20px 20px;
+    width: 90%;
+    transition: transform .18s ease;
+    transform: translate(0);
+}
+
+.main.active .container-login {
+    transition: none;
+    transform: translateX(-400px);
+}
+
+.container-login h1 {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    font-size: 1.8rem;
+    font-weight: 800;
+    pointer-events: none;
+}
+
+form .input-box {
+    position: relative;
+    width: 100%;
+    height: 44px;
+    border-bottom: 2px solid #162938;
+    margin: 30px 0 18px 0;
+}
+
+.input-box label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1rem;
+    color: #162938;
+    font-weight: 500;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label {
+    top: 0;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding-left: 5px;
+}
+
+.input-box .icon {
+    position: absolute;
+    right: 10px;
+    line-height: 45px;
+    font-size: 1.2rem;
+    color: #162938;
+}
+
+form .remember {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.remember label {
+    color: #162938;
+}
+
+.remember a {
+    color: #162938;
+    text-decoration: none;
+}
+
+.remember a:hover {
+    text-decoration: underline;
+}
+
+.container-login input[type="submit"] {
+    width: 100%;
+    height: 40px;
+    background-color: #162938;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 800;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.container-login .account-register {
+    margin: 30px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.account-register p {
+    color: #162938;
+}
+
+.account-register .register-link {
+    text-decoration: none;
+    color: #162938;
+}
+
+.account-register .register-link:hover {
+    text-decoration: underline;
+}
+
+/*************************** Register ***************************/
+
+.main .container-register {
+    width: 80%;
+    position: absolute;
+    transition: none;
+    transform: translateX(400px);
+}
+
+.main.active .container-register {
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+
+.container-register h1{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    font-size: 1.8rem;
+    font-weight: 800;
+}
+
+.container-register .input-box {
+    margin: 20px 0 18px 0;
+}
+
+.container-register input[type="submit"] {
+    width: 100%;
+    height: 40px;
+    background-color: #162938;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 800;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.container-register .account-login {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.account-login .login-link {
+    text-decoration: none;
+    color: #162938;
+}
+
+.account-login .login-link:hover {
+    text-decoration: underline;
+}
+
+/*********************** Responsive ***********************/
+
+@media screen and (max-width:897px){
+    .container ul {
+        display: none;
+    }
+
+    .dropdown {
+        display: inline-block;
+    }
+
+    .main {
+        transform: scale(1);
+    }
+
+    .main .x {
+        display: none;
+    }
+
+}
+
+@media screen and (max-width:501px) {
+    .main {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width:441px) {
+    .remember a {
+        margin-left: 15px;
+    }
+}
+
+@media screen and (max-width:431px) {
+    .remember {
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width:365px) {
+    .main {
+        width: 300px;
+    }
+
+    .container-register .account-login {
+        margin-top: 10px;
+    }
+
+    .container-login .account-register {
+        margin: 20px 0;
+    }
+
+    .account-register p {
+        font-size: 0.95rem;
+    }
+
+    .remember a {
+        margin-left: 20px;
+    }
+}
+
+/************** Les erreurs liées aux inputs **************/
+
+.input-box #error {
+    color: red;
+}
+
+/* Message de success lorsqu'un utilisateur crée un compte*/
+
+.success {
+    margin-bottom: 10px;
+}
+
+.success .succes-content {
+    display: flex;
+    justify-content: center;
+    font-size: 1.5rem;
+    background: rgb(124, 212, 124);
+    color: rgb(40, 247, 40);
+}
