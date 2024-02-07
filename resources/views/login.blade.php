@@ -50,16 +50,28 @@
                     <i class="bi bi-briefcase-fill icon"></i>
                     <input type="email" name="email">
                     <label>Email</label>
+
+                    @error('email')
+                        <div id="error">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="input-box">
                     <i class="bi bi-lock-fill icon"></i>
                     <input type="password" name="password">
                     <label>Password</label>
+
+                    @error('password')
+                        <div id="error">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="remember">
                     <label for="valided">
-                        <input type="checkbox" id="valided" required> I agree to the terms & conditions
+                        <input type="checkbox" name="confirm" id="valided"> I agree to the terms & conditions
                     </label>
+
+                    @error('confirm')
+                        <div id="error">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <input type="submit" value="Register">

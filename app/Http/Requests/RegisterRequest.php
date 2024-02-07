@@ -2,10 +2,10 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use Illuminate\Foundation\Http\FormRequest;
 
-class LoginRequest extends FormRequest
+class RegisterRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,8 +23,10 @@ class LoginRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'username' => ['required'],
             'email' => ['required', 'email', Rule::unique('users')->ignore($this->id)],
-            'password' => ['required']
+            'password' => ['required'],
+            'confirm' => ['required','boolean']
         ];
     }
 }

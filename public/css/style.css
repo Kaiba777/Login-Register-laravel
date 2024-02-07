@@ -420,3 +420,33 @@ form .remember {
     background: rgb(124, 212, 124);
     color: rgb(40, 247, 40);
 }
+
+/****************** Bouton de déconnexion *******************/
+.logout {
+}
+
+.logout h1 {
+    display: flex;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+.logout .btn-logout {
+    background: rgb(177, 51, 51);
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+/* Responsive du bouton de déconnexion */
+.nav-responsive .btn-logout {
+    background: transparent;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    border: none;
+    margin: 10px;
+}
