@@ -16,9 +16,9 @@ use App\Http\Controllers\LoginController;
 
 Route::get('/', [LoginController::class, 'index'])->name('login');
 
-Route::post('/', [LoginController::class, 'storeRequest']);
-Route::post('/', [LoginController::class, 'storeLogin']);
+Route::post('/storeRegister', [LoginController::class, 'storeRegister']);
+Route::post('/storeLogin', [LoginController::class, 'storeLogin']);
 
-Route::get('/dashboard', [LoginController::class, 'dashboard'])->name('dashboard');
+Route::get('/dashboard', [LoginController::class, 'dashboard'])->name('dashboard')->middleware('auth');
 Route::delete('/logout', [LoginController::class, 'logout'])->name('logout');
 

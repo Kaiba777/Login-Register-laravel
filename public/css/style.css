@@ -450,3 +450,19 @@ form .remember {
     border: none;
     margin: 10px;
 }
+
+/************************** dashboard **************************/
+
+.dashboard {
+    display: flex;
+    border: 1px solid white;
+    color: white;
+    font-weight: bold;
+    padding: 5px 20px;
+    margin: 0 20px;
+}
+
+.dashboard h1 {
+    border: 2px solid #162938;
+    background: #162938;
+}

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -14,8 +13,8 @@ class LoginController extends Controller
         return view('login');
     }
 
-    public function storeRequest(RegisterRequest $request) {
-        $user = User::create([
+    public function storeRegister(RegisterRequest $request) {
+        User::create([
             'username' => $request->input('username'),
             'email' => $request->input('email'),
             'password' => $request->input('password'),
@@ -26,8 +25,9 @@ class LoginController extends Controller
 
     public function storeLogin(Request $request){
         $credentials = $request->validate([
-            'email' => ['required', 'email'],
-            'password' => ['required'],
+            'email' => ['email'],
+            'password' => ['min:1'],
+            'confirm' => ['boolean']
         ]);
 
         if (Auth::attempt($credentials)) {
@@ -35,9 +35,7 @@ class LoginController extends Controller
  
             return redirect()->intended(route('dashboard'));
         }
-        return to_route('login')->withErrors([
-            'email' => 'Erreur sur l\'email'
-        ]);
+        return to_route('login');
     }
 
     public function dashboard() {

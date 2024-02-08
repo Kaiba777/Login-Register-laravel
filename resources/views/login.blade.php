@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Login&Register-Laravel')
+
 @section('content')
     <section class="main"> 
         <span class="x">
@@ -7,21 +9,21 @@
         </span>
         <div class="container-login">
             <h1>Login</h1>
-            <form action="" method="post">
+            <form action="{{ url('/storeLogin') }}" method="post">
                 @csrf
                 <div class="input-box">
                     <i class="bi bi-briefcase-fill icon"></i>
-                    <input type="email" name="email">
+                    <input type="email" name="email" required>
                     <label>Email</label>
                 </div>
                 <div class="input-box">
                     <i class="bi bi-lock-fill icon"></i>
-                    <input type="password" name="password">
+                    <input type="password" name="password" required>
                     <label>Password</label>
                 </div>
                 <div class="remember">
                     <label for="checkbox">
-                        <input type="checkbox" id="checkbox" required> Remember me
+                        <input type="checkbox" id="checkbox" value="1" name="confirm" required> Remember me
                     </label>
                     <a href="#">Forgot Password?</a>
                 </div>
@@ -35,11 +37,11 @@
 
         <div class="container-register">
             <h1>Registration</h1>
-            <form action="" method="post">
+            <form action="{{ url('/storeRegister') }}" method="post">
                 @csrf
                 <div class="input-box">
                     <i class="bi bi-person-fill icon"></i>
-                    <input type="text" name="username">
+                    <input type="text" name="username" required>
                     <label>Username</label>
 
                     @error('username')
@@ -48,7 +50,7 @@
                 </div>
                 <div class="input-box">
                     <i class="bi bi-briefcase-fill icon"></i>
-                    <input type="email" name="email">
+                    <input type="email" name="email" required>
                     <label>Email</label>
 
                     @error('email')
@@ -57,7 +59,7 @@
                 </div>
                 <div class="input-box">
                     <i class="bi bi-lock-fill icon"></i>
-                    <input type="password" name="password">
+                    <input type="password" name="password" required>
                     <label>Password</label>
 
                     @error('password')
@@ -66,7 +68,7 @@
                 </div>
                 <div class="remember">
                     <label for="valided">
-                        <input type="checkbox" name="confirm" id="valided"> I agree to the terms & conditions
+                        <input type="checkbox" id="valided" value="1" name="confirm" required> I agree to the terms & conditions
                     </label>
 
                     @error('confirm')

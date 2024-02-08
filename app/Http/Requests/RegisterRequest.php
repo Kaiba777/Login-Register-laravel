@@ -23,10 +23,10 @@ class RegisterRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'username' => ['required'],
-            'email' => ['required', 'email', Rule::unique('users')->ignore($this->id)],
-            'password' => ['required'],
-            'confirm' => ['required','boolean']
+            'username' => ['min:4'],
+            'email' => ['email', Rule::unique('users')->ignore($this->id)],
+            'password' => ['min:1'],
+            'confirm' => ['boolean']
         ];
     }
 }
